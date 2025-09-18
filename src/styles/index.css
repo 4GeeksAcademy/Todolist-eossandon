@@ -10,27 +10,27 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
-body{
-    margin-top: 100px;
+body {
+  margin-top: 100px;
 }
-container{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-ul{
-    margin-bottom: 0;
-    padding: 0;
+
+ul {
+  margin-bottom: 0;
+  padding: 0;
 }
 ul li {
-    border: 1px solid grey;
-    list-style: none;
-    padding: 5px;
+  border: 1px solid grey;
+  list-style: none;
+  padding: 5px;
 }
-h1{
-   text-align: center; 
+h1 {
+  text-align: center;
 }
-input{
-    border: none;
-    width: 100%;
+input {
+  border: none;
+  width: 100%;
+}
+.ex {
+  margin-left: 95%;
+  color: red;
 }
