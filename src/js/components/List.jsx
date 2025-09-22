@@ -17,6 +17,7 @@ const List = () => {
             onKeyPress={(e) => {
               if (e.key === "Enter" && inputValue.length > 0) {
                 setTodos(todos.concat(inputValue));
+                setInputValue("")
               }
             }}
             onChange={(e) => setInputValue(e.target.value)}
