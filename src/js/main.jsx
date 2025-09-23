@@ -9,10 +9,10 @@ import "bootstrap"
 import '../styles/index.css'
 
 // components
-import List from './components/List';
+import Layout from "./components/Layout"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <List/>
+    <Layout />
   </React.StrictMode>,
 )
