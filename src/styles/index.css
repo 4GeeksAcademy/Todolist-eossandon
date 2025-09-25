@@ -30,7 +30,6 @@ h1 {
 input {
   border: none;
   width: 100%;
-
 }
 .ex {
   position: absolute;
@@ -38,4 +37,3 @@ input {
   color: red;
   cursor: pointer;
 }
-

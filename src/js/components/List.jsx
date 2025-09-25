@@ -1,10 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //create your first component
 const List = () => {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
   const [esconder, setEsconder] = useState(null);
+  const API_URL = "https://playground.4geeks.com/todo";
+
+  const getAllTasks = async () => {
+    try {
+      const response = await fetch(`${API_URL}/users/esteban`, {
+        method: "GET",
+      });
+      const data = await response.json();
+      setTodos(data.todos.reverse());
+      console.log(data.todos);
+      setInputValue("");
+      getAllTasks;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const postTask = async (event) => {
+    try {
+      if (event.key === "Enter") {
+        const response = await fetch(`${API_URL}/todos/esteban`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            label: inputValue,
+            done: false,
+          }),
+        });
+        getAllTasks();
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllTasks();
+  }, []);
+
   return (
     <div className="container">
       <h1>Todo</h1>
@@ -13,13 +55,7 @@ const List = () => {
           <input
             className="Input-group"
             type="text"
-            placeholder="Whats need to be done?"
-            onKeyPress={(e) => {
-              if (e.key === "Enter" && inputValue.length > 0) {
-                setTodos(todos.concat(inputValue));
-                setInputValue("")
-              }
-            }}
+            onKeyPress={postTask}
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
           ></input>
@@ -30,7 +66,7 @@ const List = () => {
             onMouseOver={() => setEsconder(index)}
             onMouseLeave={() => setEsconder(null)}
           >
-            {item}{" "}
+            {item.label}{" "}
             {esconder === index && (
               <i
                 className="fa-solid fa-x ex"
