@@ -18,22 +18,36 @@ ul {
   margin-bottom: 0;
   padding: 0;
 }
+
 ul li {
   position: relative;
   border: 1px solid grey;
   list-style: none;
   padding: 5px;
 }
+
 h1 {
   text-align: center;
 }
+
 input {
   border: none;
   width: 100%;
 }
+
 .ex {
   position: absolute;
+  margin-top: 1px;
   right: 10px;
   color: red;
   cursor: pointer;
+}
+
+.check {
+  position: absolute;
+  left: 1500px;
+  transform: scale(1.5);
+  margin-top: 5px;
+  cursor: pointer;
+
 }
